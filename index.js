@@ -3,23 +3,26 @@ const express = require('express');
 const server = express();
 
 server.get('/', function(req,res){
-    res.send('hello word');
+    return res.json('hello word');
 });
 
 server.get('/about', function(req,res){
-    res.send('about');
+    return res.json('about');
 });
 
 server.get('/users/:username', (req,res,next) => {
-    res.send(req.params);
+    return res.json(req.params);
 });
 
 server.get('/books/:bookId', (req,res,next) => {
-    res.send(req.params);
+    return res.json(req.params);
 });
 
 server.get('/users/:username/books/:bookId', (req,res,next) => {
-    res.send(req.params);
+    return res.json(req.params);
+});
+server.get('/search', (req,res,next) => {
+    return res.json(req.query);
 });
 
 
